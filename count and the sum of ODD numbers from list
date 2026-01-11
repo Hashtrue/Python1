@@ -1,0 +1,13 @@
+#count and the sum of ODD numbers from list
+
+numbers = [1, 2, 3, 4, 5, 6, 7]
+
+odd_total = 0
+odd_count = 0
+
+for num in numbers:
+    if num%2 !=0:
+        odd_total = odd_total+num
+        odd_count = odd_count+1
+
+print("sum of odd = ",odd_total,",","count of odd = ",odd_count)
