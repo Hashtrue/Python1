@@ -1,0 +1,12 @@
+#average of numbers in a list
+
+numbers = [2, 5, 8, 9, 10]
+
+total = 0
+count = 0
+
+for num in numbers:
+    total = total+num
+    count = count+1
+avg = total/count
+print("final total = ",total,",", "final count = ", count,",","Average = ", avg)
