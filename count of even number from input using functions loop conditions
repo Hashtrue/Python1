@@ -1,0 +1,11 @@
+def count_even(N):
+    count = 0
+    for i in range(1, N+1):
+        if i % 2 == 0:
+            count += 1
+    return count
+
+
+N = int(input("Enter a number: "))
+result = count_even(N)
+print(result)
