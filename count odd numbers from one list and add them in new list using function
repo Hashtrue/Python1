@@ -1,0 +1,14 @@
+#count odd and add them in new list
+
+
+def get_odd_num(numbers):
+    odd_count = []
+    for num in numbers:
+        if num %2!=0:
+            odd_count.append(num)
+    return odd_count
+            
+
+numbers = [1,2,3,4,5,6,7]
+result = get_odd_num(numbers)
+print(result)
