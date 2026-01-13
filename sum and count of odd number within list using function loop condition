@@ -1,0 +1,16 @@
+numbers = [1, 2, 3, 4, 5, 6, 7]
+
+def odd_num(numbers):
+    sum_odd = 0
+    count_odd = 0
+
+    for i in numbers:
+        if i % 2 != 0:
+            sum_odd = sum_odd + i
+            count_odd = count_odd + 1
+
+    return sum_odd, count_odd
+
+sum_result, count_result = odd_num(numbers)
+print(sum_result)
+print(count_result)
