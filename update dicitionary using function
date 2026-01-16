@@ -1,0 +1,17 @@
+# dictionary using function 
+def heal_player(player, heal_amount):
+    player["health"] = heal_amount+player["health"] 
+    return player
+
+
+player = {
+    "username": "Alex",
+    "level": 5,
+    "health": 30,
+    "weapons": ["Sword", "Shield"]
+}
+
+
+player = heal_player(player,40)
+print(player["health"])
+
