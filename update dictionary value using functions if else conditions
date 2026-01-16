@@ -1,0 +1,28 @@
+
+def heal_player(player, heal_amount):
+        if player["health"]+heal_amount<=100:
+            player["health"] = player["health"]+heal_amount
+        else:
+            player["health"] = 100
+        return player
+
+def take_damage(player, damage):
+    if damage<player["health"]:
+        player["health"] = player["health"] - damage
+    else:
+        player["health"] = 0
+    return player
+
+player = {
+    "username": "Alex",
+    "level": 5,
+    "health": 50,
+    "weapons": ["Sword", "Shield"]
+}
+
+
+player = heal_player(player,140)
+player = take_damage(player,70)
+print(player["health"])
+
+
