@@ -1,0 +1,17 @@
+#split odd and even add them in new list
+
+
+def split_odd_even(numbers):
+    odd_count = []
+    even_count = []
+    for num in numbers:
+        if num %2!=0:
+            odd_count.append(num)
+        else:
+            even_count.append(num)
+    return odd_count,even_count
+            
+
+numbers = [1,2,3,4,5,6,7]
+result_odd,result_even = split_odd_even(numbers)
+print(result_odd, ",",result_even)
