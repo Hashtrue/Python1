@@ -1,0 +1,18 @@
+class Player:
+    def __init__(self,username,health):
+        self.username = username
+        self.health = health
+        
+    def heal(self,amount):
+        if amount+self.health<=100:
+            self.health+=amount
+        else:
+            self.health =100
+        
+player1 = Player("alex",80)
+player1.heal(10)
+print(player1.username)
+print(player1.health)
+    
+    
+    
