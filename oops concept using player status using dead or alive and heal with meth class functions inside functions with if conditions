@@ -1,0 +1,25 @@
+
+class Player:
+    def __init__(self,name,health):
+        self.name = name
+        self.health = health
+        
+    def is_alive(self):
+        return self.health>0
+
+    def heal(self,amount):
+        if self.is_alive:
+            if self.health+amount<=100:
+                self.health+=amount
+            else:
+                self.health=100
+
+player1 = Player("alex",80)
+player2= Player("ben",0)
+player1.heal(-10)
+player2.heal(10)
+print(player1.health)
+print(player2.health)
+
+
+
