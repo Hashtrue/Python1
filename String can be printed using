@@ -1,0 +1,14 @@
+# new way of printing a string
+
+name = "Alex"
+age = 30
+
+print(f"My name is {name} and I am {age} years old")
+
++++++++++++++++++++++++++++++++++++++
+# new way of printing a string
+
+name = "Alex"
+age = 30
+
+print("My name is " + {name}  + " and I am " + {age}  + "years old")
