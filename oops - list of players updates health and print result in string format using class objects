@@ -1,0 +1,41 @@
+class Player:
+    def __init__(self, name, health):
+        self.name = name
+        self.health = health
+
+    def is_alive(self):
+        return self.health > 0
+
+    def take_damage(self, damage):
+        if self.is_alive():
+            if damage < self.health:
+                self.health -= damage
+            else:
+                self.health = 0
+                
+    def heal(self, amount):
+        if self.is_alive():
+            if self.health<50:
+                self.health+=amount
+                if self.health>100:
+                    self.health=100
+
+    def __str__(self):
+        return f"Player = {self.name} | Health = {self.health}
+
+
+
+player1 = Player("alex", 80)
+player2 = Player("ben", 40)
+player3 = Player("Cara",20)
+
+players = [player1,player2,player3]
+
+for player in players:
+    player.heal(30)
+    print(player)
+    
+    
+
+
+
