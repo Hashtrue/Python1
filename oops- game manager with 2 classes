@@ -1,0 +1,56 @@
+# ------------------------
+# Step 1: Define Player class
+# ------------------------
+class Player:
+    def __init__(self, name, health):
+        self.name = name
+        self.health = health
+
+    def heal(self, amount):
+        # Heal only if health is less than 100
+        if self.health < 100:
+            self.health += amount
+            if self.health > 100:  # cap health at 100
+                self.health = 100
+            return True  # player was healed
+        return False  # player already full health
+
+# ------------------------
+# Step 2: Define GameManager class
+# ------------------------
+class GameManager:
+    def __init__(self, players):  # accept list of Player instances
+        self.players = players
+
+    def heal_players(self, amount):
+        count = 0  # track how many players were healed
+        for player in self.players:
+            healed = player.heal(amount)  # call each player's heal method
+            if healed:
+                count += 1
+        return count  # return total healed
+
+# ------------------------
+# Step 3: Create Player instances
+# ------------------------
+player1 = Player("Alice", 50)
+player2 = Player("Bob", 70)
+player3 = Player("Charlie", 40)
+
+# ------------------------
+# Step 4: Create list of players and GameManager
+# ------------------------
+players = [player1, player2, player3]
+manager = GameManager(players)
+
+# ------------------------
+# Step 5: Heal players using GameManager
+# ------------------------
+healed_count = manager.heal_players(30)
+
+# ------------------------
+# Step 6: Print results
+# ------------------------
+print("Number of players healed:", healed_count)
+for player in players:
+    print(f"{player.name} now has {player.health} health")
