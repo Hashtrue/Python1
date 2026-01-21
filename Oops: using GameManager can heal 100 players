@@ -1,0 +1,42 @@
+class Player:
+    def __init__(self,name,health):
+        self.name= name
+        self.health = health
+
+    def heal(self,amount):
+        if self.health<100:
+            self.health+=amount
+            if self.health>100:
+                self.health=100
+            return True
+        return False
+
+class GameManager:
+    def __init__(self, players):
+        self.players = players
+
+
+
+    def healed_players(self,amount):
+        count_healed_players = 0
+        for player in self.players:
+            healed = player.heal(amount)
+            if healed:
+                count_healed_players+=1
+        return count_healed_players
+
+players = []
+for i in range(1,100):
+    name = f"player(i)"
+    health = i%100
+    players.append(Player(name,health))
+
+
+manager = GameManager(players)
+
+count = manager.healed_players(30)
+
+print(count)
+
+for player in players[:10]:
+    print(f"Player = {player.name}, health = {player.health}")
