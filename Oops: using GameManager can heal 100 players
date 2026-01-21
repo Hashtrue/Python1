@@ -38,5 +38,5 @@ count = manager.healed_players(30)
 
 print(count)
 
-for player in players[:10]:
+for player in players[:10]:   # this is will consider only first 10 players if players[] is given it will print all 100 players name and health
     print(f"Player = {player.name}, health = {player.health}")
