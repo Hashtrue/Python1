@@ -1,0 +1,73 @@
+#Step 1 — Setup Players
+class Player:
+    def __init__(self, name, health):
+        self.name = name
+        self.health = health
+    
+    def heal(self, amount):
+        if self.is_alive() and self.health < 50:
+            self.health += amount
+            if self.health > 100:
+                self.health = 100
+            return True
+        return False
+    
+    def attack(self, other, damage):
+        if self.is_alive() and other.is_alive():
+            other.health -= damage
+            if other.health < 0:
+                other.health = 0
+            return True
+        return False
+    
+    def is_alive(self):
+        return self.health > 0
+    
+    def __str__(self):
+        return f"{self.name}: {self.health} HP"
+
+#Step 2 — Setup GameManager
+class GameManager:
+    def __init__(self, players):
+        self.players = players
+    
+    def heal_players(self, amount):
+        count_healed = 0
+        for player in self.players:
+            if player.heal(amount):
+                count_healed += 1
+        return count_healed
+    
+    def players_attack(self, damage):
+        count_attacks = 0
+        for attacker in self.players:
+            for target in self.players:
+                if attacker != target:
+                    if attacker.attack(target, damage):
+                        count_attacks += 1
+        return count_attacks
+    
+    def alive_players(self):
+        return [player for player in self.players if player.is_alive()]
+
+#Step 3 — Create Players & Manager
+players = [Player(f"Player{i}", i*10) for i in range(1, 6)]  # 5 players with 10,20,...50 HP
+manager = GameManager(players)
+
+#Step 4 — Run a Battle Round
+print("Initial status:")
+for player in players:
+    print(player)
+
+healed_count = manager.heal_players(30)
+print(f"\nPlayers healed: {healed_count}")
+
+attacks_count = manager.players_attack(15)
+print(f"Total attacks executed: {attacks_count}")
+
+print("\nStatus after round:")
+for player in players:
+    print(player)
+
+alive = manager.alive_players()
+print(f"\nAlive players: {[player.name for player in alive]}")
