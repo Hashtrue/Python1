@@ -1,0 +1,52 @@
+#Inheritance, Composition, Polymorphism
+#Boss is a Player, Player has a Weapon, each weapon while attacking behaves differently is this also works 
+#each weapon while attacking behaves differently
+#ex: sword, gun
+
+#step 1
+import random
+
+class Weapon:
+    def use(self):
+        return random.choice([10, 15, 20])  # damage varies
+
+#step 2
+
+class Player:
+    def __init__(self, name, weapon):
+        self.name = name
+        self.weapon = weapon
+        self.health = 100
+    
+    def attack(self):
+        damage = self.weapon.use()
+        print(f"{self.name} attacks for {damage} damage")
+        return damage
+
+#step 3
+
+import random
+
+class Weapon:
+    def use(self):
+        return random.choice([10, 15, 20])  # damage varies
+
+class Boss(Player):
+    def attack(self):
+        damage = self.weapon.use() * 2  # stronger attack
+        print(f"{self.name} attacks with Boss power for {damage} damage")
+        return damage
+
+#step 4
+
+sword = Weapon()
+gun = Weapon()
+
+p1 = Player("Hero", sword)
+b1 = Boss("Dragon", gun)
+
+p11 = p1.attack()
+b11 = b1.attack()
+
+
+
