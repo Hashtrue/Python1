@@ -25,12 +25,6 @@ class Player:
 
 #step 3
 
-import random
-
-class Weapon:
-    def use(self):
-        return random.choice([10, 15, 20])  # damage varies
-
 class Boss(Player):
     def attack(self):
         damage = self.weapon.use() * 2  # stronger attack
