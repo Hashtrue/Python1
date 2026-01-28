@@ -1,0 +1,9 @@
+# write data into a file
+file = open("data.txt","w")
+file.write("abcd \n")
+file.close()
+
+# read data from a file
+with open("data1.txt", "r") as file:
+    x = file.read()
+    print(x)
