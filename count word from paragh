@@ -1,0 +1,9 @@
+text = "hi hello hi hi hello"
+count = {}
+for word in text.split():
+    if word not in count:
+        count[word] = 1
+    else:
+        count[word]+=1
+print(count)
+    
